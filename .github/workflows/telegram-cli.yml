@@ -1,0 +1,30 @@
+name: telegram message
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+     
+     - name: Deploy exampl test
+       uses: stefanzweifel/git-auto-commit-action@v4
+       continue-on-error: true
+       with:
+         commit_message: 'Seccusfully Deployed example test'
+         repository: .
+         commit_user_name: Lazi-[Dev]bot
+         commit_user_email: LaziDevBot@outlook.com
+         commit_author: LaziX[Studioz]bot <LaziDevBot@outlook.com>
