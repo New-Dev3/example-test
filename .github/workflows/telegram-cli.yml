@@ -18,13 +18,13 @@ jobs:
             Repository: ${{ github.repository }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-     
-     - name: Deploy exampl test
-       uses: stefanzweifel/git-auto-commit-action@v4
-       continue-on-error: true
-       with:
-         commit_message: 'Seccusfully Deployed example test'
-         repository: .
-         commit_user_name: Lazi-[Dev]bot
-         commit_user_email: LaziDevBot@outlook.com
-         commit_author: LaziX[Studioz]bot <LaziDevBot@outlook.com>
+            
+      - name: Deploy LaziDev Web
+        uses: stefanzweifel/git-auto-commit-action@v4
+        continue-on-error: true
+        with:
+          commit_message: 'Seccusfully Deployed LaziDev Web'
+          repository: .
+          commit_user_name: Lazi [Dev]bot
+          commit_user_email: LaziDevBot@outlook.com
+          commit_author: LaziX[Studioz]bot <LaziDevBot@outlook.com>
